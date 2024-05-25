@@ -1,0 +1,95 @@
+### user routes
+### user registration
+POST http://localhost:4000/user-api/user
+Content-Type: application/json
+
+{
+    "userType": "user",
+    "username":"abhi",
+    "password":"abhi",
+    "email": "abhi@gmail.com"
+    
+}
+
+###user login
+POST http://localhost:4000/user-api/login
+Content-Type: application/json
+
+{
+    "userType": "user",
+    "username":"abhi",
+    "password":"abhi"   
+}
+
+### articles list
+GET http://localhost:4000/user-api/articles
+
+### author registration
+POST http://localhost:4000/author-api/author
+Content-Type: application/json
+
+{
+    "userType": "author",
+    "username":"abhi",
+    "password":"abhi",
+    "email": "abhi@gmail.com"
+}
+
+### author login
+POST http://localhost:4000/author-api/login
+Content-Type: application/json
+
+{
+    "userType": "author",
+    "username":"abhi",
+    "password":"abhi"   
+}
+
+### article creation
+POST http://localhost:4000/author-api/article
+Content-Type: application/json
+
+{
+    "articleid":"{{$timestamp}}",
+    "title":"Java Fundamentals",
+    "category":"programming",
+    "content": "Java is a very good lanugage and is widely used",
+    "dateofcreation":"{{$datetime iso8601}}",
+    "dateofmodification":"{{$datetime iso8601}}",
+    "username":"abhi",
+    "comments":[],
+    "status":true
+}
+
+### article modification
+PUT  http://localhost:4000/author-api/article
+Content-Type: application/json
+
+{
+    "articleid":"1711476854",
+    "title":"Java Fundamentals",
+    "category":"Programming concept",
+    "content": "Java is a great lanugage and is widely used in both coding and development",
+    "dateofcreation":"2024-03-26T18:14:14.237Z",
+    "dateofmodification":"{{$datetime iso8601}}",
+    "username":"abhi",
+    "comments":[],
+    "status":true
+}
+
+### article delete
+PUT  http://localhost:4000/author-api/article/1711476854
+
+### get articles by author
+
+GET http://localhost:4000/author-api/articles/abhi
+
+###post comment
+POST http://localhost:4000/user-api/comment
+Content-Type: application/json
+
+{
+    "articleid":1711476854,
+    "username":"abhi",
+    "comment":"This info is very helpful"
+}

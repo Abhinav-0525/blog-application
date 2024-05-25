@@ -1,0 +1,20 @@
+.bg{
+    background-size: cover;
+    width: 100%;
+}
+
+.box{
+    position: relative;
+}
+
+.left{
+    position: absolute;
+    left: 20px;
+    top: 2rem;
+}
+
+.right{
+    position: absolute;
+    right: 20px;
+    bottom: 2rem;
+}
