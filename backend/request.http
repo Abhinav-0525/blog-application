@@ -41,8 +41,8 @@ Content-Type: application/json
 
 {
     "userType": "author",
-    "username":"abhi",
-    "password":"abhi"   
+    "username":"abhinav123",
+    "password":"abhinav123"   
 }
 
 ### article creation
