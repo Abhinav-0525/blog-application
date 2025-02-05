@@ -27,7 +27,7 @@ function AddArticle() {
         //console.log(data)
 
         //making http post req
-        let resp = await axiosWithToken.post('http://localhost:4000/author-api/article', data)
+        let resp = await axiosWithToken.post(`${process.env.REACT_APP_API_URL}/author-api/article`, data)
         console.log(resp)
         if(resp.data.message==="Article created"){
             setArtiSnack(true);

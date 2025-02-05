@@ -3,12 +3,25 @@ const app = exp();
 require('dotenv').config()
 const mongoClient = require('mongodb').MongoClient;
 const path = require('path');
+const cors = require('cors');
 
 //connecting react build to server
 app.use(exp.static(path.join(__dirname, '../frontend/build')))
 
+app.use(cors({
+    origin: ["*"], // Allow all origins
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
+    credentials: true
+}));
+
+const options = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    ssl: true,
+  };
+
 //making a connection with the Database
-mongoClient.connect(process.env.DB_URL)
+mongoClient.connect(process.env.DB_URL, options)
 .then(client =>{
     //get db object
     const blogdb = client.db('blogdb')
@@ -53,5 +66,5 @@ app.use((err, req, res, next)=>{
     res.send({message: "Error", payload:err.message})
 })
 
-let port = process.env.PORT || 5000;
+let port = process.env.PORT || 4000;
 app.listen(port, ()=>{console.log(`Web server running on ${port}`)})

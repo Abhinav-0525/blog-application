@@ -24,7 +24,7 @@ function App() {
     {
       path:'',
       element:<RootLayout/>,
-      //errorElement: <ErrorPage/>, // to render the error page incase of routing error.
+      errorElement: <ErrorPage/>, // to render the error page incase of routing error.
       children:[
         {
           path:'',

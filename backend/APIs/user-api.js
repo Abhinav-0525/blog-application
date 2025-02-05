@@ -69,6 +69,5 @@ userApp.post('/comment/:articleId',verifyToken, expressAsync(async(req, res)=>{
     res.send({message:"Comment posted"})
 }))
 
-//view comme
 
 module.exports = userApp;

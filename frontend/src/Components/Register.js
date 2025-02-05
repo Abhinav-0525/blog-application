@@ -15,7 +15,7 @@ function Register() {
 
     async function formSubmission(obj){
         if(obj.userType === 'user'){
-            let res = await axios.post('http://localhost:4000/user-api/user', obj);
+            let res = await axios.post(`${process.env.REACT_APP_API_URL}/user-api/user`, obj);
             if(res.data.message === "User created"){
                 setRegiSnack(true)
                 navigate('/login')
@@ -25,7 +25,7 @@ function Register() {
             }
         }
         else{
-            let res = await axios.post('http://localhost:4000/author-api/author', obj);
+            let res = await axios.post(`${process.env.REACT_APP_API_URL}/author-api/author`, obj);
             if(res.data.message === "Author created"){
                 setRegiSnack(true)
                 navigate('/login')

@@ -10,9 +10,9 @@ function Home() {
         <div className='left'>
             <p className='display-4'>Full-Stack<br></br> Blog Application</p>
         </div>
-        <div className='right'>
+        {/* <div className='right'>
             <p className='lead fw-bold'>Created by:<br/> J. Abhinav Sai</p>
-        </div>
+        </div> */}
       </div>
       
     </div>

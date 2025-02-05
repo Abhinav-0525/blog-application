@@ -5,7 +5,7 @@ import axios from "axios";
 export const userAuthorLoginThunk = createAsyncThunk('user-author-login', async (userCredObj, thunkApi)=>{
     try{
         if(userCredObj.userType==="user"){
-            let resp = await axios.post("http://localhost:4000/user-api/login", userCredObj);
+            let resp = await axios.post(`${process.env.REACT_APP_API_URL}/user-api/login`, userCredObj);
             if(resp.data.message==="Login successful"){
                 //store the token in the local/ session storage
                 localStorage.setItem('token', resp.data.token);
@@ -17,7 +17,7 @@ export const userAuthorLoginThunk = createAsyncThunk('user-author-login', async 
             return resp.data;
         }
         if(userCredObj.userType === "author"){
-            let resp = await axios.post('http://localhost:4000/author-api/login', userCredObj);
+            let resp = await axios.post(`${process.env.REACT_APP_API_URL}/author-api/login`, userCredObj);
             if(resp.data.message==="Login successful"){
                 //store the token in the local/ session storage
                 localStorage.setItem('token', resp.data.token);
@@ -72,8 +72,8 @@ export const userAuthorSlice = createSlice({
     }),
 });
 
-//export action creator functions
+//export action creator functions (reducers) individually to call with the help of useDispatch()
 export const {resetState} = userAuthorSlice.actions;
 
-//export the root reducer of the slice
+//export the root reducer of the slice to wire it up with the store
 export default userAuthorSlice.reducer;

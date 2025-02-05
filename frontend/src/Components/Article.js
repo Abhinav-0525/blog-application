@@ -43,7 +43,7 @@ function Article() {
         delete modifiedArticle._id
         console.log(modifiedArticle)
         //make a http put request to save the modified data
-        let res = await axiosWithToken.put('http://localhost:4000/author-api/article', modifiedArticle);
+        let res = await axiosWithToken.put(`${process.env.REACT_APP_API_URL}/author-api/article`, modifiedArticle);
         if(res.data.message === "Article updated"){
             console.log("Article updated")
             setEditStatus(false)
@@ -57,7 +57,7 @@ function Article() {
     async function deleteArticle(){
         let art = currentArticle;
         delete art._id
-        let res = await axiosWithToken.put(`http://localhost:4000/author-api/article/${currentArticle.articleId}`,art)
+        let res = await axiosWithToken.put(`${process.env.REACT_APP_API_URL}/author-api/article/${currentArticle.articleId}`,art)
         if(res.data.message==="Article deleted"){
             setCurrentArticle({...currentArticle, status:false});
             setSnackMsg("Article has been Deleted!")
@@ -79,7 +79,7 @@ function Article() {
         data.username = currentUser.username;
         data.articleId = state.articleId;
         console.log(data)
-        let res = await axiosWithToken.post(`http://localhost:4000/user-api/comment/${state.articleId}`, data);
+        let res = await axiosWithToken.post(`${process.env.REACT_APP_API_URL}/user-api/comment/${state.articleId}`, data);
         console.log(res);
         if(res.data.message === 'Comment posted'){
             console.log("comment posted successfully");

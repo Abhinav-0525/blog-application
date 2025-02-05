@@ -14,7 +14,7 @@ function ArticlesForUser() {
 
     let res;
     const getArticlesByAuthor = async () => {
-      res = await axiosWithToken.get('http://localhost:4000/user-api/articles')
+      res = await axiosWithToken.get(`${process.env.REACT_APP_API_URL}/user-api/articles`)
       //console.log(res)
       if (Array.isArray(res.data.payload)) {
         setArticlesList(res.data.payload);
