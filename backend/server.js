@@ -9,7 +9,7 @@ const cors = require('cors');
 app.use(exp.static(path.join(__dirname, '../frontend/build')))
 
 app.use(cors({
-    origin: ["*"], // Allow all origins
+    origin: ["https://scribbly-plum.vercel.app"], // Allow all origins
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
     credentials: true
 }));
